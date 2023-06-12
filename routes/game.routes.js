@@ -119,8 +119,8 @@ router.get('/Dashboard/:title', isLoggedIn, (req, res, next) => {
 
     const { title } = req.params;
 
-    Create.findOne({title}).then(create => {
-        res.render('admin/games-details', { create: create, /*, message: "Game was updated..."*/ userInSession: req.session.currentUser });
+    Create.findOne({title}).then(game => {
+        res.render('admin/games-details', { game: game, /*, message: "Game was updated..."*/ userInSession: req.session.currentUser });
     }).catch(error => {
         console.log('Error while retrieving game details: ', error);
         // Call the error-middleware to display the error page to the user
