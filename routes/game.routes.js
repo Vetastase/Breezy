@@ -36,42 +36,6 @@ router.get('/browse/:title', (req, res, next) => {
     });
 })
 
-
-// Get all the Games
-/*router.get("/games1", isLoggedIn, (req, res) => {
-
-    Game.find().then(games => {
-
-        // Render different layout based on user
-        res.render('games/games-list', {
-            games,
-            layout: req.session.currentUser.role == "admin"
-                ? 'loggedIn-admin.hbs' : 'loggedIn-user.hbs'
-        })
-
-    })
-
-})*/
-
-
-// Get a specific Game
-/*router.get("/games1/:gameId", isLoggedIn, (req, res, next) => {
-    
-    const { gameId } = req.params
-
-    Game.findById(gameId).then(game => {
-
-        res.render('games/game-details', {
-            game,
-            layout: req.session.currentUser.role == "admin"
-            ? 'loggedIn-admin.hbs' : 'loggedIn-user.hbs'
-        })
-
-    }).catch(error => next(error))
-
-})*/
-
-
 // required to be logged in!
 router.get("/add", isLoggedIn, (req, res) => {
 
@@ -158,4 +122,44 @@ router.post('/:title/delete', isLoggedIn, (req, res, next) => {
   });
 
 module.exports = router;
+
+
+
+
+// Get all the Games
+/*router.get("/games1", isLoggedIn, (req, res) => {
+
+    Game.find().then(games => {
+
+        // Render different layout based on user
+        res.render('games/games-list', {
+            games,
+            layout: req.session.currentUser.role == "admin"
+                ? 'loggedIn-admin.hbs' : 'loggedIn-user.hbs'
+        })
+
+    })
+
+})*/
+
+
+// Get a specific Game
+/*router.get("/games1/:gameId", isLoggedIn, (req, res, next) => {
+    
+    const { gameId } = req.params
+
+    Game.findById(gameId).then(game => {
+
+        res.render('games/game-details', {
+            game,
+            layout: req.session.currentUser.role == "admin"
+            ? 'loggedIn-admin.hbs' : 'loggedIn-user.hbs'
+        })
+
+    }).catch(error => next(error))
+
+})*/
+
+
+
 
