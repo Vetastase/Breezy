@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <div class="title">
+      <h1>{{appTitle}}</h1>
+      </div>
+      <link rel="stylesheet" href="/stylesheets/style.css" />
+   </head>
+
+   <body>
+
+      <!-- add the navbar code below -->
+    <section class="header">
+      <nav>
+        <div class="nav-links">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/browse">Browse Games</a></li>
+            {{#if userInSession}}
+            <li><a href="/add">Add Games</a></li>
+            <li><a href="/userProfile">Profile</a></li>
+            <li><a href="/logout">Logout</a></li>
+            {{else}}
+            <li><a href="/signup">Signup</a></li>
+            <li><a href="/login">Login</a></li>
+            {{/if}}
+            </ul>
+          
+</div>
+  </nav>
+    </section>
+
+    <!--<section class="middle-section">
+      <div class="middle-div">
+  </div>
+    </section>
+
+      <section class="lower-section">
+        <div class="lower-div">
+
+
+        
+        </div>
+          </section>-->
+
+      {{{body}}}
+
+      <script src="/js/script.js"></script>
+   </body>
+
+</html>

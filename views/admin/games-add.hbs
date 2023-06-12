@@ -1,0 +1,57 @@
+<form method="POST" action="/add">
+<div id="add-all">
+<!--<div id="add-games">-->
+    <label for="title">Title</label>
+    <input type="text" name="title" placeholder="Type an English title">
+    
+    <label for="title">Release</label>
+    <input type="text" name="release" placeholder="Date and publisher(s)">
+    
+    <label for="title">Description</label>
+    <textarea type="text" name="description" placeholder="Summary of the games core plot etc."></textarea>
+    
+    <label for="title">Metacritic</label>
+    <input type="number" name="metacritic" placeholder="0-99">
+    
+    <label for="title">Image</label>
+    <input type="url" name="image" placeholder="https://example.com" pattern="https://.*" required>
+    
+    <label for="title">Video</label>
+    <input type="url" name="video" placeholder="https://example.com" pattern="https://.*" required>
+    
+    <label for="title">Genres</label>
+    <select id="genres" name="genres" required>
+    <option value="" disabled selected>Select genre(s)</option>
+    <option value="platformer">Platformer</option>
+    <option value="action adventure">Action adventure</option>
+    <option value="metroidvania">Metroidvania</option>
+    <option value="beat'em up<">Beat'em up</option>
+    </select>
+   
+    <!--<input type="text" name="genres">-->
+    
+    <!--Platforms<br>-->
+    <label for="title">Platforms</label>
+    <div class="platforms">
+    <div class="platform"><input type="checkbox" name="platforms" value="nintendo switch"> Nintendo Switch<br></div>
+    <div class="platform"><input type="checkbox" name="platforms" value="playstation 5"> PS5<br></div>
+    <div class="platform"><input type="checkbox" name="platforms" value="xbox series"> Xbox Series S/X<br></div>
+    <div class="platform"><input type="checkbox" name="platforms" value="playstation 4"> PS4<br></div>
+    <div class="platform"><input type="checkbox" name="platforms" value="Xbox One"> Xbox One<br></div>
+    <div class="platform"><input type="checkbox" name="platforms" value="Playstation Vita"> Playstation Vita<br></div>
+    <!--<select id="platforms" name="Platforms" required>
+    <option value="" disabled selected>Select platform(s)</option>
+    <option value="nintendo switch">Nintendo Switch</option>
+    <option value="playstation 5">Playstation 5</option>
+    <option value="xbox series">Xbox Series S/X</option>
+    <option value="playstation 4">Playstation 4</option>
+    <option value="xbox one">Xbox One</option>
+    <option value="playstation vita">Playstation Vita</option>
+    </select>-->
+    </div>
+
+    <input type="submit" class="submit-add">
+
+    </div>
+
+</form>

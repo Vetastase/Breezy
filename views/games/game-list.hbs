@@ -1,0 +1,25 @@
+<h1 id="games-list-title">Games</h1>
+ <div id="list">
+
+  {{#each games}}
+    <div class="list-games">
+      <img src="{{image}}" alt="test"/>
+      <div class="title-button">
+        <h3>{{title}}</h3>
+        <a href="/browse/{{'title'}}"><button>See details</button></a>
+      </div>
+    </div>
+  {{/each}}
+</div>
+
+
+
+
+
+
+{{! views/games/games-list.hbs }}
+
+{{! since we passed allTheGamesFromDB as `games`,
+we can iterate over it here with #each}}
+
+     {{! link that points to the details page }}

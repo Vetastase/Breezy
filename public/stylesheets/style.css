@@ -1,0 +1,354 @@
+@media only screen and (min-width: 1024px) and (max-width: 1440px) {
+  
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url('../images/Cyslodia.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  height: 860px;
+  width: 100%;
+  background-repeat: no-repeat
+}
+
+.header {
+  background-color: black
+}
+
+div > .title {
+  display: flex
+}
+
+.title {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  text-align: left;
+  color: lightskyblue
+}
+
+/*.middle-section {
+  background-color: green;
+  height: 25%;
+  width: 100%
+}
+
+.lower-section {
+  background-color: yellow;
+  height: 25%;
+  width: 100%
+}*/
+
+nav a {
+  color: white;
+  text-decoration: none
+}
+
+nav {
+  display: flex;
+  padding: 2% 2%;
+  justify-content: right;
+  align-items: center;
+}
+
+.nav-links{
+  display: flex;
+  text-align: right;
+}
+
+.nav-links ul li {
+  display: inline-block;
+  position: relative;
+  padding: 5px;
+  
+}
+
+@import url('https://fonts.googleapis.com/css?family=Shadows Into Light&display=swap');
+
+/* Home Screen and about */
+.fade-in-text {
+  font-family: 'Shadows Into Light';
+  font-size: 100px;
+  animation: fadeIn 5s;
+  text-align: center;
+  color: white;
+  align-items: center
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-moz-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-webkit-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-o-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-ms-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+#details {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.details-list {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-evenly;
+  color:white
+}
+
+.details-list img {
+  height: 300px;
+  width: 300px;
+}
+
+.details-text {
+  max-width: 350px;
+  justify-content: left
+}
+
+.detail-image{
+  border-radius: 15px;
+}
+
+.details-img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#list {
+  /*display: flex;
+  flex-direction: row(3);
+  flex-wrap: nowrap*/
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.list-games {
+  width: 300px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#list img {
+  height: 250px;
+  width: 250px;
+  margin-top: 40px;
+}
+
+.list-games a {
+  text-decoration: none;
+  color: white
+
+}
+
+.list-games button {
+  border: none;
+  background-color: yellowgreen;
+  color: darkblue;
+}
+
+.list-games a button {
+  height: 40px;
+  width: 80px;
+  text-align: center;
+}
+
+#games-list-title {
+  text-align: center;
+}
+
+.title-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#add-all {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 25px;
+}
+
+#add-all input, select, .save {
+  height: 40px;
+  width: 50%;
+  border-radius: 10px;
+  margin-bottom: 15px
+}
+
+.platform{
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  text-align: center;
+}
+
+#add-all input .save[type=checkbox]{
+  width: 100px;
+}
+
+#add-all textarea {
+  height: 80px;
+  width: 50%;
+  border-radius: 10px;
+  margin-bottom: 15px
+}
+
+#add-all label {
+  font-size: 20px
+}
+
+/* The input has built in borders & padding which affect the size. Set those to 0 and the sizes match. Try padding: 0.4%; to the select box, that should make your select box equal to input box.. But as like other comments the input has built in borders and padding and hence it looks bigger than select*/
+#add-all input, select, textarea .save {
+  box-sizing: border-box
+}
+
+/* Didn't work for a long while. Close Visual Studio Code and use nodemon again to fix!*/
+.submit-add {
+  background-color: teal;
+  color: white;
+  margin-top: 20px
+}
+/* CSS Selector to only target placeholders*/
+::placeholder {
+  font-size: 15px;
+}
+
+select {
+  font-size: 15px;
+}
+
+select:required:invalid {
+  color: gray;
+}
+
+option {
+  color: white
+}
+
+option[value=""][disabled] {
+  display: none;
+}
+
+footer {
+  background-color: black
+}
+
+.platforms {
+  display: flex;
+}
+
+.platform {
+  flex: 1;
+}
+
+.save {
+  background-color: teal;
+  color: white;
+  margin-top: 20px
+}
+
+#form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.caption {
+  text-align: center;
+  font-size: 50px
+}
+
+.sort-auth {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 15px
+}
+
+.button-auth button {
+  text-align: center;
+  background-color: red;
+  color: darkblue;
+  border: none;
+  border: 1px solid #17212e;
+  width: 185px
+}
+
+.sort-auth input {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px
+}
+
+#form label {
+  font-size: 30px
+}
+
+.h2-profile {
+  text-align: center;
+  font-size: 50px;
+  color: white;
+}
+
+#profile-div {
+  color: white;
+  font-size: 35px
+}
+
+#button-profile {
+  color: white;
+  background-color: lightskyblue;
+  font-size: 35px;
+  outline: none;
+  box-shadow: 2px 2px 2px #3f3f3f;
+}
+
+#button-profile button:hover {
+  box-shadow: 2px 2px 3px ;
+}
+
+#button-profile button:active {
+  box-shadow: 1px 1px 3px ;
+}
+
+.button-dash {
+  display: flex;
+  text-align: center;
+  justify-content: center
+}
+
+.button-dash button {
+  width: 80px;
+}

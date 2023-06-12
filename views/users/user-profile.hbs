@@ -1,0 +1,33 @@
+{{#if userInSession}}
+<div id ="profile-div">
+<h2 class="h2-profile">Welcome to {{appTitle}}!</h2>
+<h3 class="h3-profile">Profile</h3>
+<p id="username">Name: {{ userInSession.username }} </p>
+<p id="email">Email: {{ userInSession.email }}</p>
+
+<!--<div id="container">
+  <p id="edit"><b> Click "Edit" button to edit content. </b></p>
+  <button type="submit" id="edit-button">Edit</button>
+  <button type="submit" id="end-editing">Done</button>
+</div>-->
+
+<div id="container-profile"></div>
+<!--<a href="/userProfile">-->
+<button type="submit" id="button-profile">Edit Details</button>
+<button type="submit" id="end-editing">Done</button>
+<!--</a>-->
+</div>
+
+</div>
+{{else}}
+   
+ <br><p>Still no logged in user, sorry!</p>
+    
+    {{/if}}
+
+     <script src="/js/edit.js"></script>
+
+    
+
+
+
