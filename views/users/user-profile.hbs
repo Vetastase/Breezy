@@ -1,6 +1,5 @@
 {{#if userInSession}}
 <div id ="profile-div">
-<h2 class="h2-profile">Welcome to {{appTitle}}!</h2>
 <h3 class="h3-profile">Profile</h3>
 <p id="username">Name: {{ userInSession.username }} </p>
 <p id="email">Email: {{ userInSession.email }}</p>
@@ -11,11 +10,12 @@
   <button type="submit" id="end-editing">Done</button>
 </div>-->
 
-<div id="container-profile"></div>
+<div id="container-profile">
 <!--<a href="/userProfile">-->
 <button type="submit" id="button-profile">Edit Details</button>
 <button type="submit" id="end-editing">Done</button>
 <!--</a>-->
+</div>
 </div>
 
 </div>
