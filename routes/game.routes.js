@@ -75,9 +75,7 @@ router.get('/browse/:title', (req, res, next) => {
 // required to be logged in!
 router.get("/add", isLoggedIn, (req, res) => {
 
-    res.render('admin/games-add', {
-  
-})
+    res.render('admin/games-add', { userInSession: req.session.currentUser });
 });
 
 
@@ -85,8 +83,6 @@ router.get("/add", isLoggedIn, (req, res) => {
 router.post("/add", isLoggedIn, /*isAdmin,*/ (req, res) => {
 
     const { title, release, description, metacritic, image, video, genres, platforms } = req.body
-
-    console.log(platforms)
 
     // The correct way to store platforms is to store the array inside the database
     // The model is already an array so it should work soon !!!!!!!! (and of course, the View)
@@ -99,7 +95,7 @@ router.post("/add", isLoggedIn, /*isAdmin,*/ (req, res) => {
         video,
         genres,
         platforms
-    }).then(create => res.redirect('/Dashboard')
+    }).then(() => res.redirect('/Dashboard')
      ).catch(error => next(error))
 })
 
@@ -108,9 +104,10 @@ router.get("/Dashboard", isLoggedIn, /*isAdmin,*/ (req, res) => {
 
     Create.find().then(creates => {
 
-        res.render('admin/games-dashboard', {
+        res.render('admin/games-dashboard',  {
             creates,
-            layout: /*'loggedIn-admin.hbs'*/ 'layout.hbs'
+            layout: /*'loggedIn-admin.hbs'*/ 'layout.hbs',
+            userInSession: req.session.currentUser
         })
     })
 })
