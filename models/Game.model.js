@@ -16,7 +16,7 @@ const gameSchema = new Schema(
         default: ""
     },
     genres: [String],
-    platforms: [String],
+    platforms: String,
 },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`    

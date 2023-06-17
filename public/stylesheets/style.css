@@ -90,6 +90,10 @@ nav a {
   100% { opacity: 1; }
 }
 
+.home-caption {
+  margin-top: 390px
+}
+
 /* Both details pages*/
 #details {
   display: flex;
@@ -166,19 +170,18 @@ nav a {
 .list-games a {
   text-decoration: none;
   color: white
-
 }
 
 .list-games button {
   border: none;
-  background-color: yellowgreen;
-  color: darkblue;
+  background-color: lightskyblue;
+  color: white;
   cursor: pointer
 }
 
 .list-games a button {
   height: 40px;
-  width: 80px;
+  width: 90px;
   text-align: center;
 }
 
@@ -186,8 +189,87 @@ nav a {
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: white
 }
 
+/* games/games-dashboard.hbs */
+#games-dashboard-title {
+  text-align: center;
+  margin-top: 50px;
+  color: white
+}
+
+#dashboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.dashboard-games {
+  width: 300px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white
+}
+
+#dashboard img {
+  height: 250px;
+  width: 250px;
+  margin-top: 40px;
+}
+
+.dashboard-games a {
+  text-decoration: none;
+}
+
+.dashboard-games button {
+  border: none;
+  background-color: lightskyblue;
+  color: white;
+  cursor: pointer;
+  margin: 0px 5px 0px 5px
+}
+
+.dashboard-games a button {
+  height: 40px;
+  width: 90px;
+  text-align: center;
+}
+
+.dashboard-games form button {
+  height: 40px;
+  width: 90px;
+  text-align: center
+}
+
+.dashboard-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10px
+}
+
+/* admin/games-details.hbs */
+.details-button button {
+  display: flex;
+  color: white;
+  background-color: lightskyblue;
+  border: none;
+  height: 40px;
+  width: 90px;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center
+}
+
+.details-button a {
+  text-decoration: none;
+}
+
+
+/* admin/games-add.hbs */
 #add-all {
   display: flex;
   flex-wrap: wrap;
@@ -200,14 +282,9 @@ nav a {
   height: 40px;
   width: 50%;
   border-radius: 10px;
-  margin-bottom: 15px
-}
-
-.platform{
-  display: flex;
-  flex-direction: column;
-  margin: 20px;
-  text-align: center;
+  margin-bottom: 15px;
+  border: solid 2px rgba(122, 197, 248, 0.644);
+  font-size: 19px
 }
 
 #add-all input .save[type=checkbox]{
@@ -216,13 +293,16 @@ nav a {
 
 #add-all textarea {
   height: 80px;
-  width: 50%;
+  width: 49.6%;
   border-radius: 10px;
-  margin-bottom: 15px
+  margin-bottom: 15px;
+  border: solid 2px rgba(122, 197, 248, 0.644);
+  font-size: 19px
 }
 
 #add-all label {
-  font-size: 20px
+  font-size: 20px;
+  color: white;
 }
 
 /* The input has built in borders & padding which affect the size. Set those to 0 and the sizes match. Try padding: 0.4%; to the select box, that should make your select box equal to input box.. But as like other comments the input has built in borders and padding and hence it looks bigger than select*/
@@ -232,29 +312,24 @@ nav a {
 
 /* Didn't work for a long while. Close Visual Studio Code and use nodemon again to fix!*/
 .submit-add {
-  background-color: teal;
+  background-color: lightskyblue;
   color: white;
   margin-top: 20px
 }
 /* CSS Selector to only target placeholders*/
-::placeholder {
-  font-size: 15px;
+
+
+#genres {
+  height: 100px;
+  width: 35.2%
 }
 
-select {
-  font-size: 15px;
-}
-
-select:required:invalid {
+#genres option:disabled {
   color: gray;
 }
 
-option {
-  color: white
-}
-
-option[value=""][disabled] {
-  display: none;
+#genres option {
+  color: black
 }
 
 footer {
@@ -263,17 +338,24 @@ footer {
 
 .platforms {
   display: flex;
+  color: white;
 }
 
 .platform {
   flex: 1;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  text-align: center;
 }
 
 .save {
-  background-color: teal;
+  background-color: lightskyblue;
   color: white;
-  margin-top: 20px
+  margin-top: 20px;
 }
+
 
 /* signup.hbs */
 .caption-signup {
@@ -287,6 +369,7 @@ footer {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    color: white
 }
 
 .sort-auth-signup {
@@ -312,7 +395,7 @@ footer {
 .sort-auth-signup input {
   display: flex;
   justify-content: center;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
   width: 700px;
   height: 30px
 }
@@ -322,18 +405,20 @@ footer {
   text-align: center;
 }
 
+
 /* login.hbs */
+.caption-login {
+  text-align: center;
+  font-size: 50px;
+  color: white;
+  margin-top: 250px
+  }
+
 #form-login {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-}
-
-.caption-login {
-text-align: center;
-font-size: 50px;
-color: white;
-margin-top: 250px
+  color: white
 }
 
 .sort-auth-login {
@@ -350,16 +435,17 @@ text-align: center;
 background-color: lightskyblue;
 color: white;
 border: none;
-border: 1px solid #17212e;
-width: 600px;
-height: 30px
+border: 1px solid white;
+width: 700px;
+height: 30px;
+font-size: 20px
 }
 
 .sort-auth-login input {
 display: flex;
 justify-content: center;
-margin-bottom: 20px;
-width: 600px;
+margin-bottom: 50px;
+width: 700px;
 height: 30px
 }
 
@@ -382,7 +468,7 @@ text-align: center
 #button-profile {
   color: white;
   background-color: lightskyblue;
-  font-size: 35px;
+  font-size: 30px;
   outline: none;
   box-shadow: 2px 2px 2px #3f3f3f;
   margin-right: 20px
@@ -394,14 +480,6 @@ text-align: center
 
 #button-profile button:active {
   box-shadow: 1px 1px 3px ;
-}
-
-#end-editing {
-  color: white;
-  background-color: lightskyblue;
-  font-size: 35px;
-  outline: none;
-  box-shadow: 2px 2px 2px #3f3f3f;
 }
 
 #container-profile {

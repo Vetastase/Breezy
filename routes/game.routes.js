@@ -23,11 +23,11 @@ router.get('/browse', (req, res, next) => {
         });
 });
 
-router.get('/browse/:title', (req, res, next) => {
+router.get('/browse/:gameId', (req, res, next) => {
 
-    const { title } = req.params;
+    const { gameId } = req.params;
 
-    Game.findOne({title}).then(game => {
+    Game.findById(gameId).then(game => {
         res.render('games/game-details', { game: game, /*, message: "Game was updated..."*/ userInSession: req.session.currentUser });
     }).catch(error => {
         console.log('Error while retrieving game details: ', error);
@@ -59,12 +59,12 @@ router.post("/add", isLoggedIn, /*isAdmin,*/ (req, res) => {
         video,
         genres,
         platforms
-    }).then(() => res.redirect('/Dashboard')
+    }).then(() => res.redirect('/dashboard')
      ).catch(error => next(error))
 })
 
 
-router.get("/Dashboard", isLoggedIn, /*isAdmin,*/ (req, res) => {
+router.get("/dashboard", isLoggedIn, /*isAdmin,*/ (req, res) => {
 
     Create.find().then(creates => {
 
@@ -76,11 +76,11 @@ router.get("/Dashboard", isLoggedIn, /*isAdmin,*/ (req, res) => {
     })
 })
 
-router.get('/Dashboard/:title', isLoggedIn, (req, res, next) => {
+router.get('/dashboard/:gameId', isLoggedIn, (req, res, next) => {
 
-    const { title } = req.params;
+    const { gameId } = req.params;
 
-    Create.findOne({title}).then(game => {
+    Create.findById(gameId).then(game => {
         res.render('admin/games-details', { game: game, /*, message: "Game was updated..."*/ userInSession: req.session.currentUser });
     }).catch(error => {
         console.log('Error while retrieving game details: ', error);
@@ -90,34 +90,31 @@ router.get('/Dashboard/:title', isLoggedIn, (req, res, next) => {
 })
 
 
+router.get('/dashboard/:gameId/edit', isLoggedIn, (req, res, next) => {
+    const { gameId } = req.params;
 
-router.get('/:title/edit', isLoggedIn, (req, res, next) => {
-    const { title } = req.params;
-
-    Create.findOne({title})
-    .then(createToEdit => {
-       // console.log(createToEdit);
-       res.render('admin/games-edit', { create: createToEdit });
+    Create.findById(gameId)
+    .then(create => {
+       res.render('admin/games-edit', { create: create, userInSession: req.session.currentUser });
 })
     .catch(error => next(error));
 });
 
 
-router.post('/:title/edit', isLoggedIn, (req, res, next) => {
-  const { createtitle } = req.params;
-  const { title, release, description, metacritic, image, video, genres, platforms } = req.body;
+router.post('/dashboard/:gameId/edit', isLoggedIn, (req, res, next) => {
+  const { gameId } = req.params;
  
-  Create.findOneAndUpdate(createtitle, { title, release, description, metacritic, image, video, genres, platforms }, { new: true })
-    .then(() => res.redirect('/Dashboard')) 
+  Create.findByIdAndUpdate(gameId, req.body, { new: true })
+    .then(() => res.redirect('/dashboard')) 
     .catch(error => next(error));
 });
 
 
-router.post('/:title/delete', isLoggedIn, (req, res, next) => {
-    const { title} = req.params;
+router.post('/dashboard/:gameId/delete', isLoggedIn, (req, res, next) => {
+    const { gameId } = req.params;
    
-    Create.findOneAndDelete(title)
-      .then(() => res.redirect('/Dashboard'))
+    Create.findByIdAndDelete(gameId)
+      .then(() => res.redirect('/dashboard'))
       .catch(error => next(error));
   });
 

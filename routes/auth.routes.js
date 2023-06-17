@@ -35,7 +35,7 @@ router.post('/signup', isLoggedOut, (req, res, next) => {
     })
     .then(userFromDB => {
      console.log('Newly created user is: ', userFromDB);
-      res.redirect("/userProfile");
+      res.redirect("/login");
     })
     .catch(error => next(error));
   });
@@ -61,7 +61,7 @@ router.post('/signup', isLoggedOut, (req, res, next) => {
           return;
         } else if (bcryptjs.compareSync(password, user.password)) {
           req.session.currentUser = user;
-          res.render('users/user-profile', { userInSession: req.session.currentUser });
+          res.render('index', { userInSession: req.session.currentUser });
         } else {
           res.render('auth/login', { errorMessage: 'Incorrect password.'});
         }
@@ -69,8 +69,37 @@ router.post('/signup', isLoggedOut, (req, res, next) => {
       .catch(error => next(error));
     });
 
-  router.get('/userProfile', isLoggedIn, (req, res) => {
-    res.render('users/user-profile', { userInSession: req.session.currentUser });
+  router.get('/profile/:id', isLoggedIn, (req, res) => {
+    const { _id } = req.params;
+
+    
+  if (!mongoose.Types.ObjectId.isValid(_id)) {
+    res.status(400).json({ message: "Not a valid ID!" });
+    return;
+}
+
+    User.findById(_id)
+    .then(() =>
+      res.render('users/user-profile', { userInSession: req.session.currentUser }));
+  })
+
+/*router.get('/userProfile', isLoggedIn, (req, res) => {
+  res.render('users/user-profile', { userInSession: req.session.currentUser });
+});*/
+
+  router.put('/profile/:id', isLoggedIn, (req, res, next) => {
+    const { _id } = req.params;
+    const { username, email } = req.body;
+
+    
+  if (!mongoose.Types.ObjectId.isValid(_id)) {
+    res.status(400).json({ message: "Not a valid ID!" });
+    return;
+}
+   
+    User.findByIdAndUpdate(_id, { username, email }, { new: true })
+      .then(() => res.render('users/user-profile', { userInSession: req.session.currentUser })) 
+      .catch(error => next(error));
   });
  
   router.get("/logout", isLoggedIn, (req, res, next) => {

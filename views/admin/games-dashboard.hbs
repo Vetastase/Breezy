@@ -1,12 +1,17 @@
-<h1 id="games-list-title">Your Games!</h1>
- <div id="list">
+<h1 id="games-dashboard-title">Your Games!</h1>
+ <div id="dashboard">
 
   {{#each creates}}
-    <div class="list-games">
+    <div class="dashboard-games">
       <img src="{{image}}" alt="test"/>
-      <div class="title-button">
         <h3>{{title}}</h3>
-        <a href="/Dashboard/{{'title'}}"><button>See details</button></a>
+         <div class="dashboard-button">
+        <a href="/dashboard/{{_id}}">
+        <button>See details</button>
+        </a>
+        <form class="delete-board" action="/dashboard/{{_id}}/delete" method="POST">
+        <button>Delete</button>
+        </form>
       </div>
     </div>
   {{/each}}
@@ -16,10 +21,3 @@
 
 
 
-
-
-  <!--<div class="abutton-dash">
-        <a href="{{title}}/edit"><button>Edit</button></a>
-        <div class="button-dash">
-        <form action="{{title}}/delete" method="POST">
-        <button>Delete</button>-->
