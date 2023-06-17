@@ -94,8 +94,8 @@ router.get('/dashboard/:gameId/edit', isLoggedIn, (req, res, next) => {
     const { gameId } = req.params;
 
     Create.findById(gameId)
-    .then(create => {
-       res.render('admin/games-edit', { create: create, userInSession: req.session.currentUser });
+    .then(createEdit => {
+       res.render('admin/games-edit', { create: createEdit, userInSession: req.session.currentUser });
 })
     .catch(error => next(error));
 });
@@ -105,7 +105,7 @@ router.post('/dashboard/:gameId/edit', isLoggedIn, (req, res, next) => {
   const { gameId } = req.params;
  
   Create.findByIdAndUpdate(gameId, req.body, { new: true })
-    .then(() => res.redirect('/dashboard')) 
+    .then(updatedCreate => res.redirect(`/dashboard/${updatedCreate.id}`)) 
     .catch(error => next(error));
 });
 
