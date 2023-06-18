@@ -355,8 +355,10 @@ footer {
   background-color: lightskyblue;
   color: white;
   margin-top: 20px;
-  display: flex;
-  flex-direction: row
+}
+
+#add-all .save {
+  display: flex
 }
 
 
