@@ -4,7 +4,7 @@ const Game = require('../models/Game.model');
  
 const MONGO_URI = process.env.MONGODB_URI || 
 //"mongodb://127.0.0.1:27017/Breezy";
-"https://smoggy-lamb-pantyhose.cyclic.app";
+"mongodb+srv://Something:nangKfJN2gjftLgz@breezy.k6en8g9.mongodb.net/?retryWrites=true&w=majority";
  
   const users = [
   { username: "NabilAslam", email: "nabil.aslam26@gmail.com", password: "$2a$10$NFzGblUJxxfUXH32LP4a5eIr4hXNTQNjHgDjK3ZKn5twj3je9E0Ce", role: "admin" }
