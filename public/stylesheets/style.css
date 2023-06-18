@@ -358,7 +358,8 @@ footer {
 }
 
 #add-all .save {
-  display: flex
+  display: flex;
+  flex-direction: row
 }
 
 
