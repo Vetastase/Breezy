@@ -2,7 +2,9 @@ const mongoose = require('mongoose');
 const User = require('../models/User.model');
 const Game = require('../models/Game.model');
  
-const MONGO_URI = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/Breezy";
+const MONGO_URI = process.env.MONGODB_URI || 
+//"mongodb://127.0.0.1:27017/Breezy";
+"https://smoggy-lamb-pantyhose.cyclic.app";
  
   const users = [
   { username: "NabilAslam", email: "nabil.aslam26@gmail.com", password: "$2a$10$NFzGblUJxxfUXH32LP4a5eIr4hXNTQNjHgDjK3ZKn5twj3je9E0Ce", role: "admin" }
