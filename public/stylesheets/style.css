@@ -355,6 +355,8 @@ footer {
   background-color: lightskyblue;
   color: white;
   margin-top: 20px;
+  display: flex;
+  
 }
 
 
