@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const router = new Router();
-
+const mongoose = require ("mongoose");
 const bcryptjs = require('bcryptjs');
 const saltRounds = 10;
 
@@ -70,15 +70,15 @@ router.post('/signup', isLoggedOut, (req, res, next) => {
     });
 
   router.get('/profile/:id', isLoggedIn, (req, res) => {
-    const { _id } = req.params;
+    const { id } = req.params;
 
     
-  if (!mongoose.Types.ObjectId.isValid(_id)) {
+  if (!mongoose.Types.ObjectId.isValid(id)) {
     res.status(400).json({ message: "Not a valid ID!" });
     return;
 }
 
-    User.findById(_id)
+    User.findById(id)
     .then(() =>
       res.render('users/user-profile', { userInSession: req.session.currentUser }));
   })
@@ -88,16 +88,16 @@ router.post('/signup', isLoggedOut, (req, res, next) => {
 });*/
 
   router.put('/profile/:id', isLoggedIn, (req, res, next) => {
-    const { _id } = req.params;
+    const { id } = req.params;
     const { username, email } = req.body;
 
     
-  if (!mongoose.Types.ObjectId.isValid(_id)) {
+  if (!mongoose.Types.ObjectId.isValid(id)) {
     res.status(400).json({ message: "Not a valid ID!" });
     return;
 }
    
-    User.findByIdAndUpdate(_id, { username, email }, { new: true })
+    User.findByIdAndUpdate(id, { username, email }, { new: true })
       .then(() => res.render('users/user-profile', { userInSession: req.session.currentUser })) 
       .catch(error => next(error));
   });

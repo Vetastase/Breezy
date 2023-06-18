@@ -279,17 +279,13 @@ nav a {
   margin-top: 25px;
 }
 
-#add-all input, select, .save {
+#add-all input, select {
   height: 40px;
   width: 50%;
   border-radius: 10px;
   margin-bottom: 15px;
   border: solid 2px rgba(122, 197, 248, 0.644);
   font-size: 19px
-}
-
-#add-all input .save[type=checkbox]{
-  width: 100px;
 }
 
 #add-all textarea {
@@ -307,7 +303,7 @@ nav a {
 }
 
 /* The input has built in borders & padding which affect the size. Set those to 0 and the sizes match. Try padding: 0.4%; to the select box, that should make your select box equal to input box.. But as like other comments the input has built in borders and padding and hence it looks bigger than select*/
-#add-all input, select, textarea .save {
+#add-all input, select, textarea, a, button {
   box-sizing: border-box
 }
 
@@ -351,17 +347,30 @@ footer {
   text-align: center;
 }
 
-.save {
+#add-all a {
+  text-decoration: none;
+}
+
+#add-all button {
+  border: none;
   background-color: lightskyblue;
   color: white;
-  margin-top: 20px;
+  cursor: pointer;
+  margin: 0px 5px 0px 5px
 }
 
-#add-all .save {
+#add-all a button {
+  height: 40px;
+  width: 400px;
+  text-align: center;
+}
+
+.save {
   display: flex;
-  flex-direction: row
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10px
 }
-
 
 /* signup.hbs */
 .caption-signup {
