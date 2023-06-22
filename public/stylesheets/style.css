@@ -154,6 +154,7 @@ nav a {
   height: 250px;
   width: 250px;
   margin-top: 40px;
+  border-radius: 10px;
 }
 
 .list-games a {
@@ -200,7 +201,7 @@ nav a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: white
+  color: white;
 }
 
 #dashboard img {
