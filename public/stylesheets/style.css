@@ -40,18 +40,6 @@ nav a {
   margin-top: 5px
 }
 
-/*.middle-section {
-  background-color: green;
-  height: 25%;
-  width: 100%
-}
-
-.lower-section {
-  background-color: yellow;
-  height: 25%;
-  width: 100%
-}*/
-
 
 @import url('https://fonts.googleapis.com/css?family=Shadows Into Light&display=swap');
 
@@ -63,7 +51,7 @@ nav a {
   display: flex;
   text-align: center;
   color: white;
-  align-items: center
+  align-items: center;
 }
 
 @keyframes fadeIn {
@@ -92,7 +80,7 @@ nav a {
 }
 
 .home-caption {
-  margin-top: 390px
+  margin-top: 290px
 }
 
 /* Both details pages*/
