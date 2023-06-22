@@ -1,27 +1,25 @@
-{{!-- views/auth/signup.hbs --}}
-
-  <h2 class="caption-signup">Signup</h2>
-<div id="form-signup">
+<h2 class="caption-signup">Signup</h2>
+  <div id="form-signup">
   
-  <form action="/signup" method="POST">
+    <form action="/signup" method="POST">
  
-    <div class="sort-auth-signup">
-    <label> Name
-      <input type="text" name="username" placeholder="Enter name" />
-    </label>
+      <div class="sort-auth-signup">
+      <label> Name
+      <input type="text" name="name" placeholder="Enter name" />
+      </label>
  
-    <label> Email
+      <label> Email
       <input type="email" name="email" placeholder="example@gmail.com" />
-    </label>
+      </label>
  
-    <label> Password
+      <label> Password
       <input type="password" name="password" placeholder="********" />
-    </label>
-    </div>
+      </label>
+      </div>
  
-    <div class="button-auth-signup">
-    <button type="submit">Create account</button>
-    </div>
+      <div class="button-auth-signup">
+      <button type="submit">Create account</button>
+      </div>
  
     {{!-- error message will be added here --}}
   </form>

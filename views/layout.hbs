@@ -24,7 +24,7 @@
             {{#if userInSession}}
             <li><a href="/add">Add Games</a></li>
             <li><a href="/dashboard">Dashboard</a></li>
-            <li><a href="/profile/:id">Profile</a></li>
+            <li><a href="/profile/{{userInSession._id}}">Profile</a></li>
             <li><a href="/logout">Logout</a></li>
             {{else}}
             <li><a href="/signup">Signup</a></li>
@@ -35,19 +35,6 @@
 </div>
   </nav>
     </section>
-
-    <!--<section class="middle-section">
-      <div class="middle-div">
-  </div>
-    </section>
-
-      <section class="lower-section">
-        <div class="lower-div">
-
-
-        
-        </div>
-          </section>-->
 
       {{{body}}}
 

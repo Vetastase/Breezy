@@ -1,0 +1,18 @@
+  {{#with user}}
+  <h3 class="h3-profile">Profile</h3>   
+<div id ="profile-div">
+    <form action="/profile/{{_id}}/edit" method="post">
+
+      <div class="form-group">
+          <input type="text" id="name" name="name" value="{{name}}" />
+          <input type="email" id="email" name="email"  value="{{email}}" />
+      </div>
+
+        <div id="container-profile">
+      <button type="submit" id="button-profile">Save changes</button>
+        </div>    
+
+    </form>
+  </div>
+    {{/with}}
+    

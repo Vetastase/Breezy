@@ -14,9 +14,8 @@ router.get('/signup', isLoggedOut, (req, res) => res.render('auth/signup'));
  
 // POST route ==> to process form data
 router.post('/signup', isLoggedOut, (req, res, next) => {
-    console.log('The form data: ', req.body);
 
-    const { username, email, password } = req.body;
+    const { name, email, password } = req.body;
 
     bcryptjs
     .genSalt(saltRounds)
@@ -24,8 +23,7 @@ router.post('/signup', isLoggedOut, (req, res, next) => {
     .then(hashedPassword => {
         // console.log(`Password hash: ${hashedPassword}`)
         return User.create({
-          // username: username
-          username,
+          name,
           email,
           // passwordHash => this is the key from the User model
           //    ^
@@ -40,6 +38,7 @@ router.post('/signup', isLoggedOut, (req, res, next) => {
     .catch(error => next(error));
   });
 
+  // Login Route
   router.get('/login', isLoggedOut, (req, res) => {
     res.render('auth/login', { userInSession: req.session.currentUser });
   })
@@ -69,39 +68,38 @@ router.post('/signup', isLoggedOut, (req, res, next) => {
       .catch(error => next(error));
     });
 
-  router.get('/profile/:id', isLoggedIn, (req, res) => {
-    const { id } = req.params;
-
+// Getting specific profile
+router.get('/profile/:id', isLoggedIn, (req, res) => {
+  const { id } = req.params;
     
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    res.status(400).json({ message: "Not a valid ID!" });
-    return;
-}
-
-    User.findById(id)
-    .then(() =>
-      res.render('users/user-profile', { userInSession: req.session.currentUser }));
+  User.findById(id)
+  .then(user => res.render('users/profile', {user: user, userInSession: req.session.currentUser} ))
+  .catch(error => console.log(error))
   })
 
-/*router.get('/userProfile', isLoggedIn, (req, res) => {
-  res.render('users/user-profile', { userInSession: req.session.currentUser });
-});*/
-
-  router.put('/profile/:id', isLoggedIn, (req, res, next) => {
+  //Get Edit Form
+  router.get('/profile/:id/edit', isLoggedIn, (req, res, next) => {
     const { id } = req.params;
-    const { username, email } = req.body;
-
-    
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    res.status(400).json({ message: "Not a valid ID!" });
-    return;
-}
-   
-    User.findByIdAndUpdate(id, { username, email }, { new: true })
-      .then(() => res.render('users/user-profile', { userInSession: req.session.currentUser })) 
-      .catch(error => next(error));
+  
+    User.findById(id)
+    .then(userEdit => {
+       res.render('users/profile-edit', { user: userEdit, userInSession: req.session.currentUser });
+  })
+    .catch(error => next(error));
   });
- 
+  
+  // Updating name and email
+    router.post('/profile/:id/edit', isLoggedIn, (req, res, next) => {
+      const { id } = req.params;
+      const { name, email } = req.body;
+
+      User.findByIdAndUpdate(id, { name, email }, { new: true })
+        .then(() => res.redirect(`/profile/${id}`)) 
+        .catch(error => next(error));
+    });
+
+
+  //Logout Route
   router.get("/logout", isLoggedIn, (req, res, next) => {
     req.session.destroy(err => {
       if (err) next(err);

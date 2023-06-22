@@ -37,7 +37,7 @@ nav a {
   display: inline-block;
   align-items: center;
   margin-right: 15px;
-  margin-top: 7.5px
+  margin-top: 5px
 }
 
 /*.middle-section {
@@ -60,6 +60,7 @@ nav a {
   font-family: 'Shadows Into Light';
   font-size: 100px;
   animation: fadeIn 5s;
+  display: flex;
   text-align: center;
   color: white;
   align-items: center
@@ -471,40 +472,87 @@ text-align: center
 
 
 /* profile.hbs */
-#profile-div {
+.h3-profile {
+  text-align: center;
+  font-size: 50px;
   color: white;
-  font-size: 35px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   margin-top: 250px
 }
 
-#button-profile {
-  color: white;
-  background-color: lightskyblue;
-  font-size: 30px;
-  outline: none;
-  box-shadow: 2px 2px 2px #3f3f3f;
-  margin-right: 20px
-}
-
-#button-profile button:hover {
-  box-shadow: 2px 2px 3px ;
-}
-
-#button-profile button:active {
-  box-shadow: 1px 1px 3px ;
-}
-
-#container-profile {
+#profile-div {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-#username {
-  margin-top: -10px
+.form-group {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15px;
+  margin-bottom: 25px
+}
+
+.form-group input {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+  width: 700px;
+  height: 30px
+}
+
+#name {
+  margin-top: -15px;
+  margin-bottom: 30px;
+  font-size: 20px;
+  text-align: center
 }
 
 #email {
-  margin-top: -10px
+  margin-top: -15px;
+  margin-bottom: 5px;
+  font-size: 20px;
+  text-align: center
 }
+
+#name:disabled, #email:disabled {
+  background-color: transparent;
+  border-color: transparent;
+  color: white
+}
+
+#name:focus, #email:focus {
+  background-color: transparent;
+  border-color: transparent
+}
+
+#name:not(:disabled), #email:not(:disabled) {
+  background-color: lightskyblue;
+}
+
+#container-profile button  {
+  text-align: center;
+  background-color: lightskyblue;
+  color: white;
+  border: none;
+  border: 1px solid white;
+  width: 700px;
+  height: 30px;
+  font-size: 20px;
+  cursor: pointer
+}
+
+#container-profile a {
+  text-decoration: none;
+  color: white
+}
+
+#container-profile button:hover input:hover {
+  box-shadow: 2px 2px 2px ;
+}
+
+#container-profile button:active input:active {
+  box-shadow: 2px 2px 3px ;
+}
+

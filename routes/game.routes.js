@@ -1,16 +1,13 @@
 // routes/game-routes.js
 const router = require('express').Router();
 
-// const { findById } = require('../models/Game.model');
 const Game = require('../models/Game.model'); // <== add this line before your routes
 const Create = require('../models/Create.model'); // <== add this line before your routes
 
 const mongoose = require ("mongoose");
 
 // require (import) middleware functions
-const { isLoggedIn, isLoggedOut, isAdmin } = require("../middleware/route-guard.js");
-const { getMaxListeners } = require('../app');
-const { raw } = require('express');
+const { isLoggedIn } = require("../middleware/route-guard.js");
 
 router.get('/browse', (req, res, next) => {
     Game.find()
@@ -70,7 +67,7 @@ router.get("/dashboard", isLoggedIn, /*isAdmin,*/ (req, res) => {
 
         res.render('admin/games-dashboard',  {
             creates,
-            layout: /*'loggedIn-admin.hbs'*/ 'layout.hbs',
+            layout: 'layout.hbs',
             userInSession: req.session.currentUser
         })
     })
@@ -80,7 +77,8 @@ router.get('/dashboard/:gameId', isLoggedIn, (req, res, next) => {
 
     const { gameId } = req.params;
 
-    Create.findById(gameId).then(game => {
+    Create.findById(gameId)
+    .then(game => {
         res.render('admin/games-details', { game: game, /*, message: "Game was updated..."*/ userInSession: req.session.currentUser });
     }).catch(error => {
         console.log('Error while retrieving game details: ', error);

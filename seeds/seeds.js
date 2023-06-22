@@ -1,14 +1,11 @@
 const mongoose = require('mongoose');
-const User = require('../models/User.model');
+//const User = require('../models/User.model');
 const Game = require('../models/Game.model');
  
 const MONGO_URI = process.env.MONGODB_URI || 
-//"mongodb://127.0.0.1:27017/Breezy";
-"mongodb+srv://Something:nangKfJN2gjftLgz@breezy.k6en8g9.mongodb.net/?retryWrites=true&w=majority";
+"mongodb://127.0.0.1:27017/Breezy";
+//"mongodb+srv://Something:nangKfJN2gjftLgz@breezy.k6en8g9.mongodb.net/?retryWrites=true&w=majority";
  
-  const users = [
-  { username: "NabilAslam", email: "nabil.aslam26@gmail.com", password: "$2a$10$NFzGblUJxxfUXH32LP4a5eIr4hXNTQNjHgDjK3ZKn5twj3je9E0Ce", role: "admin" }
-]
  
 const games = [
   {
@@ -153,6 +150,7 @@ mongoose
     }).catch((err) => {
      console.error("Error creating games: ", err);
     });
+  });
    
     User.create(users)
     .then(data => {
@@ -160,10 +158,7 @@ mongoose
       console.log(`${data.length} users inserted.`)
       mongoose.connection.close()
     }).catch((err) => {
-      console.error("Error creating products: ", err);
+      console.error("Error creating users: ", err);
     });
 
-  })
-  .catch((err) => {
-    console.error("Error connecting to Mongo ", err);
-  });
+ 
